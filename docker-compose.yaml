@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  postgresDB:
+    container_name: postgresDB
+    restart: always
+    image: postgres
+#    volumes:
+#      - ./Users/admin/Desktop/localdb:/var/lib/mysql
+    ports:
+      - "5432:3306"
+    environment:
+      MYSQL_DATABASE: stackover
+      MYSQL_ROOT_PASSWORD: root
+
+  spring-boot-application:
+    container_name: spring-container
+    restart: always
+    image: my_project
+    ports:
+      - "8080:8080"
